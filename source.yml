@@ -3,6 +3,6 @@ name: orocos.toolchain
 version_control:
     - .*:
         type: git
-        branch: master
+        branch: toolchain-2.2
         url: $GITORIOUS_ROOT/orocos-toolchain/$PACKAGE.git
 
