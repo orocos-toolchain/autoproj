@@ -51,7 +51,7 @@ gccxml:
         dev-cpp/gccxml
 
 hoe:
-    gem: "hoe < 2.9.0"
+    gem: hoe=2.8.0
 
 flexmock: gem
 webgen: gem
