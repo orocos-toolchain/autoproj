@@ -72,7 +72,7 @@ cmake_package 'utilmm'
 cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj.find_in_path(Config::CONFIG['RUBY_INSTALL_NAME'])
 end
-
+cmake_package 'rtt_typelib'
 ruby_package 'orogen' do |pkg|
     pkg.provides "orogen"
     target = user_config('rtt_target')
