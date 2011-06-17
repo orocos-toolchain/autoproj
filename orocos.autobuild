@@ -79,3 +79,4 @@ ruby_package 'orogen' do |pkg|
     pkg.rake_setup_task = "setup[-DCMAKE_INSTALL_PREFIX=#{pkg.prefix} -DOROCOS_TARGET=#{target}]"
 end
 
+cmake_package 'stdint-typekit'
