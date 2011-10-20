@@ -12,7 +12,16 @@ antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
 omniorb:
-    debian,ubuntu: [omniidl4, libomniorb4-dev, omniorb4-nameserver]
+    debian: [omniidl4, libomniorb4-dev, omniorb4-nameserver]
+    ubuntu:
+         '11.10':
+            - omniidl
+            - libomniorb4-dev
+            - omniorb-nameserver
+         default:
+            - omniidl4
+            - libomniorb4-dev
+            - omniorb4-nameserver
     gentoo: net-misc/omniORB
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
