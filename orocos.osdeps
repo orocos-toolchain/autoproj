@@ -42,11 +42,6 @@ ncurses:
 doxygen:
     debian,ubuntu: [doxygen]
     gentoo: app-doc/doxygen
-qtruby:
-    debian,ubuntu:
-        libqt4-ruby1.8
-    gentoo:
-        kde-base/kdebindings-ruby
 graphviz:
     debian,ubuntu:
         graphviz
