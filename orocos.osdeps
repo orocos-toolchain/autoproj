@@ -65,10 +65,7 @@ rice: gem
 nokogiri: 
     gem: nokogiri
     debian,ubuntu:
-        '9.04,9.10,10.04,10.10,11.04':
-            [libnokogiri-ruby1.8, libxslt1-dev]
-        default:
-            libxslt1-dev
+        libxslt1-dev
     gentoo:
         dev-libs/libxslt
 
