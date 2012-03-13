@@ -14,6 +14,7 @@ antlr:
 omniorb:
     debian,ubuntu: [omniidl4, libomniorb4-dev, omniorb4-nameserver]
     gentoo: net-misc/omniORB
+    linuxmint: [omniidl, libomniorb4-dev, omniorb-nameserver]
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
 
