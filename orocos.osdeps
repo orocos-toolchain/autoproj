@@ -12,7 +12,15 @@ antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
 omniorb:
-    debian,ubuntu: [omniidl4, libomniorb4-dev, omniorb4-nameserver]
+    debian,ubuntu:
+        'squeeze,9.04,9.10,10.04,10.10,11.04':
+            - omniidl4
+            - libomniorb4-dev
+            - omniorb4-nameserver
+        default:
+            - omniidl
+            - libomniorb4-dev
+            - omniorb-nameserver
     gentoo: net-misc/omniORB
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
@@ -33,11 +41,6 @@ ncurses:
 doxygen:
     debian,ubuntu: [doxygen]
     gentoo: app-doc/doxygen
-qtruby:
-    debian,ubuntu:
-        libqt4-ruby1.8
-    gentoo:
-        kde-base/kdebindings-ruby
 graphviz:
     debian,ubuntu:
         graphviz
