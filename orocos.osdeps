@@ -31,6 +31,9 @@ readline:
 libreadline:
     debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
+libreadline-dev:
+    debian,ubuntu: [libreadline-dev]
+    gentoo: sys-libs/readline
 
 lua-dev:
     debian,ubuntu: [liblua5.1-0-dev]
