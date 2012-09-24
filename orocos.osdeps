@@ -64,8 +64,12 @@ webgen: gem
 coderay: gem
 rice: gem
 
-nokogiri: 
-    gem: nokogiri
+rake: gem
+rdoc: gem
+
+nokogiri: gem
+
+libxslt:
     debian,ubuntu:
         libxslt1-dev
     gentoo:
