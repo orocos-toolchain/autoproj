@@ -67,7 +67,12 @@ rice: gem
 rake: gem
 rdoc: gem
 
-nokogiri: gem
+nokogiri:
+    gem: nokogiri
+    debian,ubuntu:
+        libxslt1-dev
+    gentoo:
+        dev-libs/libxslt
 
 libxslt:
     debian,ubuntu:
