@@ -56,21 +56,27 @@ gccxml:
     gentoo:
         dev-cpp/gccxml
 
-hoe:
-    gem: hoe=2.8.0
+rdoc:
+    debian,ubuntu:
+        ignore # it is installed by default these days
+    default:
+        gem
 
-flexmock: gem
-webgen: gem
-coderay: gem
-rice: gem
-
-rake: gem
-rdoc: gem
+rake:
+    debian,ubuntu:
+        rake
+    default:
+        gem
 
 nokogiri:
-    gem: nokogiri
-    debian,ubuntu:
-        libxslt1-dev
+    debian:
+        ruby-nokogiri
+    ubuntu:
+        default: ruby-nokogiri
+        '10.04,10.10,11.04,11.10':
+            - libxslt1-dev
+            - gem: nokogiri
+            
     gentoo:
         dev-libs/libxslt
 
@@ -83,4 +89,9 @@ libxslt:
 ruby:
     debian,ubuntu,gentoo: ignore
 
-facets: gem
+facets:
+    debian:
+        ruby-facets
+    default:
+        gem: facets
+
