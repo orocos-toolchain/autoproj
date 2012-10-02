@@ -80,6 +80,11 @@ nokogiri:
     gentoo:
         dev-libs/libxslt
 
+libxml2:
+    debian,ubuntu:
+        libxml2-dev
+    gentoo:
+        dev-libs/libxml
 libxslt:
     debian,ubuntu:
         libxslt1-dev
