@@ -96,7 +96,8 @@ ruby:
 
 facets:
     debian:
-        ruby-facets
+        squeeze: gem
+        default: ruby-facets
     default:
         gem: facets
 
