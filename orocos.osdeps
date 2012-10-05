@@ -95,6 +95,7 @@ ruby:
     debian,ubuntu,gentoo: ignore
 
 facets:
+    ubuntu: gem
     debian:
         squeeze: gem
         default: ruby-facets
