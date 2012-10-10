@@ -41,6 +41,12 @@ lua-dev:
 ncurses:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
+libncurses:
+    debian,ubuntu: [libncurses5-dev]
+    gentoo: sys-libs/ncurses
+libncurses-dev:
+    debian,ubuntu: [libncurses5-dev]
+    gentoo: sys-libs/ncurses
 doxygen:
     debian,ubuntu: [doxygen]
     gentoo: app-doc/doxygen
