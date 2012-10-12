@@ -7,6 +7,7 @@ boost:
         - libboost-thread-dev
         - libboost-filesystem-dev
     gentoo: dev-libs/boost
+    fedora: boost-devel
 
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
@@ -22,49 +23,55 @@ omniorb:
             - libomniorb4-dev
             - omniorb-nameserver
     gentoo: net-misc/omniORB
+    fedora: omniORB-devel
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
 
 readline:
     debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
+    fedora: readline-devel
 libreadline:
     debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
+    fedora: readline-devel
 libreadline-dev:
     debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
+    fedora: readline-devel
 
 lua-dev:
     debian,ubuntu: [liblua5.1-0-dev]
     gentoo: dev-lang/lua
+    fedora: lua-devel
 ncurses:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
+    fedora: ncurses-devel
 doxygen:
     debian,ubuntu: [doxygen]
     gentoo: app-doc/doxygen
+    fedora: doxygen
 graphviz:
-    debian,ubuntu:
-        graphviz
-    gentoo:
-        graphviz
+    debian,ubuntu: graphviz
+    gentoo: graphviz
+    fedora: graphviz
 
 gccxml:
-    debian,ubuntu:
-        gccxml
-    gentoo:
-        dev-cpp/gccxml
+    debian,ubuntu: gccxml
+    gentoo: dev-cpp/gccxml
+    fedora: gccxml
 
 rdoc:
     debian,ubuntu:
         ignore # it is installed by default these days
+    fedora: ruby-rdoc
     default:
         gem
 
 rake:
-    debian,ubuntu:
-        rake
+    debian,ubuntu: rake
+    fedora: rubygem-rake
     default:
         gem
 
@@ -77,28 +84,27 @@ nokogiri:
             - libxslt1-dev
             - gem: nokogiri
             
-    gentoo:
-        dev-libs/libxslt
+    gentoo: dev-libs/libxslt
+    fedora: rubygem-nokogiri
 
 libxml2:
-    debian,ubuntu:
-        libxml2-dev
-    gentoo:
-        dev-libs/libxml
+    debian,ubuntu: libxml2-dev
+    gentoo: dev-libs/libxml
+    fedora: libxml2-devel
 libxslt:
-    debian,ubuntu:
-        libxslt1-dev
-    gentoo:
-        dev-libs/libxslt
+    debian,ubuntu: libxslt1-dev
+    gentoo: dev-libs/libxslt
+    fedora: libxslt-devel
 
 ruby:
-    debian,ubuntu,gentoo: ignore
+    debian,ubuntu,gentoo,fedora: ignore
 
 facets:
     ubuntu: gem
     debian:
         squeeze: gem
         default: ruby-facets
+    fedora: rubygem-facets
     default:
         gem: facets
 
