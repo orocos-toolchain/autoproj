@@ -28,28 +28,28 @@ tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
 
 readline:
-    debian,ubuntu: [libreadline-dev]
+    debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
 libreadline:
-    debian,ubuntu: [libreadline-dev]
+    debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
 libreadline-dev:
-    debian,ubuntu: [libreadline-dev]
+    debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
 
 lua-dev:
-    debian,ubuntu: [liblua5.1-0-dev]
+    debian,ubuntu: liblua5.1-0-dev
     gentoo: dev-lang/lua
     fedora: lua-devel
 ncurses:
-    debian,ubuntu: [libncurses5-dev]
+    debian,ubuntu: libncurses5-dev
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
 doxygen:
-    debian,ubuntu: [doxygen]
+    debian,ubuntu: doxygen
     gentoo: app-doc/doxygen
     fedora: doxygen
 graphviz:
