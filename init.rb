@@ -5,7 +5,7 @@ gitorious_long_doc = [
 
 configuration_option 'GITORIOUS', 'string',
     :default => "git",
-    :values => ["http", "ssh"],
+    :possible_values => ['git', "http", "ssh"],
     :doc => gitorious_long_doc do |value|
 
     if value == "git"
