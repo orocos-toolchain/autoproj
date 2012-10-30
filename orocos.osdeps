@@ -83,7 +83,7 @@ nokogiri:
         - dev-libs/libxslt
 
 libxml2:
-    debian,ubuntu: libxml2
+    debian,ubuntu: libxml2-dev
     gentoo: dev-libs/libxml2
     
 libxslt:
