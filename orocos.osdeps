@@ -48,6 +48,14 @@ ncurses:
     debian,ubuntu: libncurses5-dev
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
+libncurses:
+    debian,ubuntu: [libncurses5-dev]
+    gentoo: sys-libs/ncurses
+    fedora: ncurses-devel
+libncurses-dev:
+    debian,ubuntu: [libncurses5-dev]
+    gentoo: sys-libs/ncurses
+    fedora: ncurses-devel
 doxygen:
     debian,ubuntu: doxygen
     gentoo: app-doc/doxygen
@@ -89,8 +97,9 @@ nokogiri:
 
 libxml2:
     debian,ubuntu: libxml2-dev
-    gentoo: dev-libs/libxml
+    gentoo: dev-libs/libxml2
     fedora: libxml2-devel
+    
 libxslt:
     debian,ubuntu: libxslt1-dev
     gentoo: dev-libs/libxslt
