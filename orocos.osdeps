@@ -6,7 +6,9 @@ boost:
         - libboost-regex-dev
         - libboost-thread-dev
         - libboost-filesystem-dev
+        - libboost-iostreams-dev
     gentoo: dev-libs/boost
+    fedora: boost-devel
 
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
