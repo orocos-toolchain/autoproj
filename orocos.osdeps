@@ -57,6 +57,8 @@ libncurses-dev:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
+netcdf:
+    debian,ubuntu: [libnetcdf-dev]
 doxygen:
     debian,ubuntu: doxygen
     gentoo: app-doc/doxygen
