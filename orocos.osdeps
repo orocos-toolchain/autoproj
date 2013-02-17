@@ -124,3 +124,8 @@ facets:
     default:
         gem: facets
 
+xpath-perl:
+    ubuntu: libxml-xpath-perl
+    debian: libxml-xpath-perl
+    fedora: perl-XML-XPath
+    gentoo: dev-perl/XML-XPath
