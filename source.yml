@@ -7,4 +7,9 @@ version_control:
         branch: master
         url: $GITORIOUS_ROOT/orocos-toolchain/$PACKAGE.git
         push_to: $GITORIOUS_PUSH_ROOT/orocos-toolchain/$PACKAGE.git
+    - tools/metaruby:
+        type: git
+        branch: master
+        url: $GITORIOUS_ROOT/rock-toolchain/metaruby.git
+        push_to: $GITORIOUS_PUSH_ROOT/rock-toolchain/metaruby.git
 
