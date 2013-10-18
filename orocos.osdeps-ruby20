@@ -1,0 +1,15 @@
+nokogiri:
+    debian:
+        - gem: nokogiri
+        - libxslt1-dev
+        - libxml2-dev
+    ubuntu:
+        - libxslt1-dev
+        - gem: nokogiri
+            
+    gentoo:
+        - dev-libs/libxslt
+        - gem: nokogiri
+        
+    fedora: rubygem-nokogiri
+
