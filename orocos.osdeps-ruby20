@@ -12,4 +12,7 @@ nokogiri:
         - gem: nokogiri
         
     fedora: rubygem-nokogiri
+    arch,manjarolinux:
+        - libxslt
+        - gem: nokogiri
 

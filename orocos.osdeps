@@ -9,10 +9,14 @@ boost:
         - libboost-iostreams-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
+    arch,manjarolinux:
+        - boost
+        - boostlibs
 
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
+
 omniorb:
     debian,ubuntu:
         'squeeze,9.04,9.10,10.04,10.10,11.04':
@@ -25,6 +29,8 @@ omniorb:
             - omniorb-nameserver
     gentoo: net-misc/omniORB
     fedora: omniORB-devel
+    arch,manjarolinux: ignore
+
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
 
@@ -32,6 +38,7 @@ readline:
     debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
+    arch,manjarolinux: readline
 libreadline:
     debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
@@ -45,6 +52,7 @@ lua-dev:
     debian,ubuntu: liblua5.1-0-dev
     gentoo: dev-lang/lua
     fedora: lua-devel
+    arch,manjarolinux: lua51
 ncurses:
     debian,ubuntu: libncurses5-dev
     gentoo: sys-libs/ncurses
@@ -72,6 +80,7 @@ gccxml:
     debian,ubuntu: gccxml
     gentoo: dev-cpp/gccxml
     fedora: gccxml
+    arch,manjarolinux: ignore
 
 rdoc:
     debian,ubuntu:
@@ -101,19 +110,23 @@ nokogiri:
             
     gentoo: dev-libs/libxslt
     fedora: rubygem-nokogiri
+    arch,manjarolinux:
+         - gem: nokogiri
 
 libxml2:
     debian,ubuntu: libxml2-dev
     gentoo: dev-libs/libxml2
     fedora: libxml2-devel
+    arch,manjarolinux: libxml2
     
 libxslt:
     debian,ubuntu: libxslt1-dev
     gentoo: dev-libs/libxslt
     fedora: libxslt-devel
+    arch,manjarolinux: libxslt
 
 ruby:
-    debian,ubuntu,gentoo,fedora: ignore
+    debian,ubuntu,gentoo,fedora,arch,manjarolinux: ignore
 
 facets:
     ubuntu: gem
@@ -129,6 +142,7 @@ xpath-perl:
     debian: libxml-xpath-perl
     fedora: perl-XML-XPath
     gentoo: dev-perl/XML-XPath
+    arch,manjarolinux: perl-xml-xpath
 
 rake-compiler: 
     debian,ubuntu:
