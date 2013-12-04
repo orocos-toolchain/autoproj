@@ -9,9 +9,10 @@ boost:
         - libboost-iostreams-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
+    darwin: boost
     arch,manjarolinux:
         - boost
-        - boostlibs
+        - boost-libs
 
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
@@ -57,6 +58,7 @@ ncurses:
     debian,ubuntu: libncurses5-dev
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
+    arch,manjarolinux: ncurses
 libncurses:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
@@ -71,10 +73,12 @@ doxygen:
     debian,ubuntu: doxygen
     gentoo: app-doc/doxygen
     fedora: doxygen
+    arch,manjarolinux: doxygen
 graphviz:
     debian,ubuntu: graphviz
     gentoo: graphviz
     fedora: graphviz
+    arch,manjarolinux: graphviz
 
 gccxml:
     debian,ubuntu: gccxml
