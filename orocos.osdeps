@@ -101,7 +101,7 @@ rake:
 
 nokogiri:
     debian:
-        squeeze:
+        squeeze,wheezy,jessie:
                 - gem: nokogiri
                 - libxslt1-dev
                 - libxml2-dev
