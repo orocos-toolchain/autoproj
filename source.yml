@@ -3,13 +3,8 @@ required_autoproj_version: 1.7.4
 
 version_control:
     - .*:
-        type: git
-        branch: master
-        url: $GITORIOUS_ROOT/orocos-toolchain/$PACKAGE.git
-        push_to: $GITORIOUS_PUSH_ROOT/orocos-toolchain/$PACKAGE.git
+        github: orocos-toolchain/$PACKAGE
     - tools/metaruby:
-        type: git
+        github: rock-toolchain/metaruby
         branch: master
-        url: $GITORIOUS_ROOT/rock-toolchain/metaruby.git
-        push_to: $GITORIOUS_PUSH_ROOT/rock-toolchain/metaruby.git
 
