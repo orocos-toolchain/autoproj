@@ -111,26 +111,6 @@ rake:
     default:
         gem
 
-nokogiri:
-    debian:
-        squeeze,wheezy,jessie:
-                - gem: nokogiri
-                - libxslt1-dev
-                - libxml2-dev
-        default: ruby-nokogiri
-    ubuntu:
-        default: ruby-nokogiri
-        '10.04,10.10,11.04,11.10':
-            - libxslt1-dev
-            - gem: nokogiri
-    gentoo:
-       - dev-libs/libxslt
-       - dev-ruby/nokogiri
-    fedora: rubygem-nokogiri
-    arch,manjarolinux:
-         - gem: nokogiri
-    opensuse: rubygem-nokogiri
-
 libxml2:
     debian,ubuntu: libxml2-dev
     gentoo: dev-libs/libxml2
