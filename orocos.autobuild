@@ -76,6 +76,7 @@ ruby_package 'utilrb'
 cmake_package 'utilmm' do |pkg|
     pkg.doc_dir = File.join("doc", "html")
 end
+remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj.find_in_path(RbConfig::CONFIG['RUBY_INSTALL_NAME'])
 end
