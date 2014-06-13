@@ -4,7 +4,7 @@ nokogiri:
             - ruby-nokogiri
     fedora:
         '20': rubygem-nokogiri
-    default:
+    default,ubuntu:
         - gem: nokogiri
         - osdep: libxml2
         - osdep: libxslt
