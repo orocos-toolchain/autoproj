@@ -5,6 +5,6 @@ version_control:
     - .*:
         github: orocos-toolchain/$PACKAGE
     - tools/metaruby:
-        github: rock-toolchain/metaruby
+        github: rock-core/tools-metaruby
         branch: master
 
