@@ -9,7 +9,7 @@ boost:
         - libboost-iostreams-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
-    darwin: boost
+    macos-brew: boost
     arch,manjarolinux:
         - boost
         - boost-libs
@@ -18,6 +18,7 @@ boost:
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
+    macos-brew: antlr
 
 omniorb:
     debian,ubuntu:
@@ -33,9 +34,11 @@ omniorb:
     fedora: omniORB-devel
     arch,manjarolinux: ignore
     opensuse: omniORB-devel
+    macos-brew: omniorb
 
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
+    macos-brew: tao
 
 readline:
     debian,ubuntu: libreadline-dev
@@ -43,16 +46,19 @@ readline:
     fedora: readline-devel
     arch,manjarolinux: readline
     opensuse: readline-devel
+    macos-brew: readline
 libreadline:
     debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
     opensuse: readline-devel
+    macos-brew: readline
 libreadline-dev:
     debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
     opensuse: readline-devel
+    macos-brew: readline
 
 lua-dev:
     debian,ubuntu: liblua5.1-0-dev
@@ -84,12 +90,14 @@ doxygen:
     fedora: doxygen
     arch,manjarolinux: doxygen
     opensuse: doxygen
+    macos-brew: doxygen
 graphviz:
     debian,ubuntu: graphviz
     gentoo: graphviz
     fedora: graphviz
     arch,manjarolinux: graphviz
     opensuse: graphviz
+    macos-brew: graphviz
 
 gccxml:
     debian,ubuntu: gccxml
@@ -97,6 +105,7 @@ gccxml:
     fedora: gccxml
     arch,manjarolinux: ignore
     opensuse: gccxml
+    macos-brew: ignore
 
 rdoc:
     debian,ubuntu:
@@ -117,16 +126,18 @@ libxml2:
     fedora: libxml2-devel
     arch,manjarolinux: libxml2
     opensuse: libxml2-devel
-    
+    macos-brew: libxml2
+
 libxslt:
     debian,ubuntu: libxslt1-dev
     gentoo: dev-libs/libxslt
     fedora: libxslt-devel
     arch,manjarolinux: libxslt
     opensuse: libxslt-devel
+    macos-brew: libxslt
 
 ruby:
-    debian,ubuntu,gentoo,fedora,arch,manjarolinux,opensuse: ignore
+    debian,ubuntu,gentoo,fedora,arch,manjarolinux,opensuse,darwin: ignore
 
 facets:
     ubuntu: gem
@@ -144,6 +155,7 @@ xpath-perl:
     gentoo: dev-perl/XML-XPath
     arch,manjarolinux: perl-xml-xpath
     opensuse: perl-XML-XPath
+    darwin: ignore
 
 rake-compiler: 
     debian,ubuntu:
