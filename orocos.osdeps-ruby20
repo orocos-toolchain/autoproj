@@ -2,7 +2,7 @@ nokogiri:
     debian:
         jessie,sid: ruby-nokogiri
     ubuntu:
-        '14.04': ruby-nokogiri
+        '14.04,14.10': ruby-nokogiri
     fedora:
         '20': rubygem-nokogiri
     default:
