@@ -3,7 +3,7 @@ nokogiri:
         jessie,sid: ruby-nokogiri
     ubuntu:
         '14.04': ruby-nokogiri
-         default:
+        default:
           - gem: nokogiri
           - osdep: libxml2
           - osdep: libxslt
