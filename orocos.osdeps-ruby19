@@ -2,6 +2,10 @@ nokogiri:
     ubuntu:
         '12.04,12.10,13.04,13.10,14.04':
             - ruby-nokogiri
+        '14.10':
+            - gem: nokogiri
+            - osdep: libxml2
+            - osdep: libxslt
     default:
         - gem: nokogiri
         - osdep: libxml2
