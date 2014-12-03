@@ -40,20 +40,13 @@ tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
     macos-brew: tao
 
+# Alias for ROS compatibility
 readline:
-    debian,ubuntu: libreadline-dev
-    gentoo: sys-libs/readline
-    fedora: readline-devel
-    arch,manjarolinux: readline
-    opensuse: readline-devel
-    macos-brew: readline
-libreadline:
-    debian,ubuntu: libreadline-dev
-    gentoo: sys-libs/readline
-    fedora: readline-devel
-    opensuse: readline-devel
-    macos-brew: readline
+    osdep: libreadline
+# Alias for ROS compatibility
 libreadline-dev:
+    osdep: libreadline
+libreadline:
     debian,ubuntu: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
