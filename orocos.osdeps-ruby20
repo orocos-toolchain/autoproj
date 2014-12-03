@@ -2,11 +2,11 @@ nokogiri:
     debian:
         jessie,sid: ruby-nokogiri
     ubuntu:
-        '14.04': ruby-nokogiri
-        default:
+        '12.04,12.10,13.04,13.10':
           - gem: nokogiri
           - osdep: libxml2
           - osdep: libxslt
+        default: ruby-nokogiri
     fedora:
         '20': rubygem-nokogiri
     default:
