@@ -68,6 +68,8 @@ end
 cmake_package "log4cpp"
 
 ruby_package 'tools/metaruby'
+# For ROS compatibility, ROS does not like paths in package names
+metapackage 'metaruby', 'tools/metaruby'
 # The Autoproj API does not allow to put a package higher in the hierarchy, only
 # lower. Trick it.
 Autoproj.manifest.moved_packages['tools/metaruby'] = 'metaruby'
