@@ -52,6 +52,7 @@ libreadline:
     fedora: readline-devel
     opensuse: readline-devel
     macos-brew: readline
+    arch: readline
 
 lua-dev:
     debian,ubuntu: liblua5.1-0-dev
