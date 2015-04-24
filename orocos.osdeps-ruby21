@@ -1,0 +1,19 @@
+nokogiri:
+    debian:
+        jessie,sid:
+            - ruby-nokogiri
+    fedora:
+        '20': rubygem-nokogiri
+    ubuntu:
+        '12.04,12.10,13.04,13.10,14.04':
+          - gem: nokogiri
+          - osdep: libxml2
+          - osdep: libxslt
+        default: ruby-nokogiri
+        
+    default:
+        - gem: nokogiri
+        - osdep: libxml2
+        - osdep: libxslt
+
+
