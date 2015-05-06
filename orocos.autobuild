@@ -84,7 +84,7 @@ cmake_package 'typelib' do |pkg|
     # Enable the clang importer by adding the following in autoproj/init.rb
     #
     #   Autoproj.env_set 'TYPELIB_CXX_LOADER', 'clang'
-    pkg.define 'USE_CLANG_TLB_IMPORTER', (ENV['TYPELIB_CXX_LOADER'] == 'clang')
+    pkg.define 'BUILD_CLANG_TLB_IMPORTER', (ENV['TYPELIB_CXX_LOADER'] == 'clang')
     pkg.post_import do
         # remove_dependency is post-1.9.0
         m = if pkg.respond_to?(:remove_dependency)
