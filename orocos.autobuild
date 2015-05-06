@@ -95,7 +95,7 @@ cmake_package 'typelib' do |pkg|
         if ENV['TYPELIB_CXX_LOADER'] == 'clang'
             m.call 'gccxml'
         else
-            m.call 'clang'
+            m.call 'clang-3.4'
         end
     end
 end
