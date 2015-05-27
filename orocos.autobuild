@@ -80,7 +80,24 @@ cmake_package 'utilmm' do |pkg|
 end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
-    pkg.define "RUBY_EXECUTABLE", Autoproj.find_in_path(RbConfig::CONFIG['RUBY_INSTALL_NAME'])
+    pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
+    # Enable the clang importer by adding the following in autoproj/init.rb
+    #
+    #   Autoproj.env_set 'TYPELIB_CXX_LOADER', 'clang'
+    pkg.define 'BUILD_CLANG_TLB_IMPORTER', (ENV['TYPELIB_CXX_LOADER'] == 'clang')
+    pkg.post_import do
+        # remove_dependency is post-1.9.0
+        m = if pkg.respond_to?(:remove_dependency)
+                pkg.method(:remove_dependency)
+            else pkg.os_packages.method(:delete)
+            end
+        
+        if ENV['TYPELIB_CXX_LOADER'] == 'clang'
+            m.call 'gccxml'
+        else
+            m.call 'clang-3.4'
+        end
+    end
 end
 cmake_package 'rtt_typelib'
 ruby_package 'orogen'
