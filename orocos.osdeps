@@ -9,7 +9,7 @@ boost:
         - libboost-iostreams-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
-    macos-brew: boost
+    darwin: boost
     arch,manjarolinux:
         - boost
         - boost-libs
@@ -18,7 +18,7 @@ boost:
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
-    macos-brew: antlr
+    darwin: antlr
 
 omniorb:
     debian,ubuntu:
@@ -35,10 +35,11 @@ omniorb:
     arch,manjarolinux: ignore
     opensuse: omniORB-devel
     macos-brew: omniorb
+    macos-port: omniORB
 
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
-    macos-brew: tao
+    darwin: tao
 
 # Alias for ROS compatibility
 readline:
@@ -92,6 +93,7 @@ graphviz:
     arch,manjarolinux: graphviz
     opensuse: graphviz
     macos-brew: graphviz
+    macos-port: graphviz-devel
 
 gccxml:
     debian,ubuntu: gccxml
@@ -99,7 +101,7 @@ gccxml:
     fedora: gccxml
     arch,manjarolinux: ignore
     opensuse: gccxml
-    macos-brew: ignore
+    darwin: ignore
 
 rdoc:
     debian,ubuntu:
@@ -120,7 +122,7 @@ libxml2:
     fedora: libxml2-devel
     arch,manjarolinux: libxml2
     opensuse: libxml2-devel
-    macos-brew: libxml2
+    darwin: libxml2
 
 libxslt:
     debian,ubuntu: libxslt1-dev
@@ -128,7 +130,7 @@ libxslt:
     fedora: libxslt-devel
     arch,manjarolinux: libxslt
     opensuse: libxslt-devel
-    macos-brew: libxslt
+    darwin: libxslt
 
 ruby:
     debian,ubuntu,gentoo,fedora,arch,manjarolinux,opensuse,darwin: ignore
