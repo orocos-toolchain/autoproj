@@ -3,15 +3,6 @@ configuration_option 'rtt_target', 'string',
     :possible_values => %w{gnulinux xenomai macosx},
     :doc => "the target operating system for Orocos/RTT (gnulinux, xenomai, or macosx)"
 
-# Upgrade configuration: the old rtt_corba option has to be translated to 'none'
-# for the CORBA implementation if it is false. Do not use Autoproj.user_config
-# here as there might be some cases where autoproj will want to ask the option
-# to the user (e.g. if --reconfigure is called)
-if Autoproj.has_config_key?('rtt_corba') && !Autoproj.option_set['rtt_corba']
-    Autoproj.change_option 'rtt_corba_implementation', 'none'
-end
-Autoproj.reset_option 'rtt_corba'
-
 configuration_option 'rtt_corba_implementation', 'string',
     :default => "omniorb",
     :lowercase => true,
