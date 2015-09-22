@@ -165,3 +165,4 @@ hoe: gem
 clang-3.4:
     debian, ubuntu: [llvm-3.4, clang-3.4, libclang-3.4-dev]
 
+bundler: gem
