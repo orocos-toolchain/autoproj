@@ -72,10 +72,17 @@ end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
+
+    cxx_loader =
+        if Autoproj.respond_to?(:workspace)
+	    Autoproj.workspace.env['TYPELIB_CXX_LOADER']
+        else ENV['TYPELIB_CXX_LOADER']
+        end
+
     # Enable the clang importer by adding the following in autoproj/init.rb
     #
     #   Autoproj.env_set 'TYPELIB_CXX_LOADER', 'clang'
-    pkg.define 'BUILD_CLANG_TLB_IMPORTER', (ENV['TYPELIB_CXX_LOADER'] == 'clang')
+    pkg.define 'BUILD_CLANG_TLB_IMPORTER', (cxx_loader == 'clang')
     pkg.post_import do
         # remove_dependency is post-1.9.0
         m = if pkg.respond_to?(:remove_dependency)
@@ -83,13 +90,23 @@ cmake_package 'typelib' do |pkg|
             else pkg.os_packages.method(:delete)
             end
         
-        if ENV['TYPELIB_CXX_LOADER'] == 'clang'
+        if cxx_loader == 'clang'
+	    pkg.message "%s: using the clang importer"
             m.call 'gccxml'
+            m.call 'castxml'
+        elsif cxx_loader == 'castxml'
+	    pkg.message "%s: using the castxml importer"
+            m.call 'gccxml'
+            m.call 'clang-3.4'
         else
+	    pkg.message "%s: using the gccxml importer"
+            m.call 'castxml'
             m.call 'clang-3.4'
         end
     end
 end
+cmake_package 'castxml'
+remove_from_default 'castxml'
 cmake_package 'rtt_typelib'
 ruby_package 'orogen'
 cmake_package 'stdint_typekit'
