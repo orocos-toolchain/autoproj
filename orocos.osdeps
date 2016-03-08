@@ -167,7 +167,7 @@ clang-3.4:
 
 libclang-castxml:
     ubuntu:
-        '14.04,14.10': [libclang-3.5-dev, llvm-3.5-dev]
+        '14.04,14.10': nonexistent
         '15.04': [libclang-3.6-dev, llvm-3.6-dev]
         '15.10': [libclang-3.7-dev, llvm-3.7-dev]
         default: [libclang-3.7-dev, llvm-3.7-dev]
