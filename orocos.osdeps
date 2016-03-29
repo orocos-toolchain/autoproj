@@ -165,4 +165,18 @@ hoe: gem
 clang-3.4:
     debian, ubuntu: [llvm-3.4, clang-3.4, libclang-3.4-dev]
 
+libclang-castxml:
+    ubuntu:
+        '14.04,14.10': nonexistent
+        '15.04': [libclang-3.6-dev, llvm-3.6-dev]
+        '15.10': [libclang-3.7-dev, llvm-3.7-dev]
+        default: [libclang-3.7-dev, llvm-3.7-dev]
+
+zlib:
+    ubuntu,debian: zlib1g-dev
+
+libedit:
+    ubuntu,debian: libedit-dev
+    
+
 bundler: gem

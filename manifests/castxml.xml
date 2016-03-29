@@ -1,0 +1,16 @@
+<package>
+    <description brief="a C-family abstract syntax tree XML output tool.">
+    </description>
+    <license>Apache License, Version 2.0</license>
+    <author>Kitware</author>
+
+    <url>https://github.com/CastXML/CastXML</url>
+
+    <rosdep name="cmake" />
+    <rosdep name="libclang-castxml" />
+    <rosdep name="zlib" />
+    <rosdep name="libedit" />
+    <tags>stable</tags>
+</package>
+
+
