@@ -20,7 +20,7 @@ cmake_package 'rtt' do |pkg|
     env_set 'OROCOS_TARGET', target
     pkg.define "OROCOS_TARGET", target
 
-    env_add 'CMAKE_PREFIX_PATH', pkg.prefix
+    pkg.env_add 'CMAKE_PREFIX_PATH', pkg.prefix
 
     # Used by the oroGen handler
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
