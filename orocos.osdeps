@@ -1,3 +1,6 @@
+pkg-config:
+    default: pkg-config
+
 boost:
     debian,ubuntu:
         - libboost-dev
