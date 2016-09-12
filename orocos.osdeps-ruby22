@@ -1,0 +1,6 @@
+ruby-dev:
+    ubuntu:
+        '15.10': ruby2.2-dev
+        default: ignore
+    default: ignore
+

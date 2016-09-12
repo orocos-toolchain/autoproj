@@ -11,3 +11,9 @@ nokogiri:
         - osdep: libxml2
         - osdep: libxslt
 
+
+ruby-dev:
+    ubuntu:
+        '14.04': ruby1.9.1-dev
+        default: ignore
+    default: ignore

@@ -17,3 +17,9 @@ nokogiri:
         - osdep: libxslt
 
 
+
+ruby-dev:
+    ubuntu:
+        '15.10': ruby2.1-dev
+        default: ignore
+    default: ignore
