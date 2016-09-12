@@ -72,6 +72,7 @@ end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
+    pkg.env_set 'TYPELIB_PLUGIN_PATH', File.join(pkg.prefix, 'lib', 'typelib')
 
     cxx_loader =
         if Autoproj.respond_to?(:workspace)
