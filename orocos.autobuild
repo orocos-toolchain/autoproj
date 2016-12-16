@@ -26,13 +26,9 @@ cmake_package 'rtt' do |pkg|
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
     Autoproj.config.get('rtt_corba_implementation')
 
-
     # Disable building the test suite because it needs a lot of time and memory
-    #
-    # To reenable for your installation, add
-    #   Autobuild::Package['rtt'].define "BUILD_TESTING", "ON"
-    # to autoproj/overrides.rb
-    pkg.define "BUILD_TESTING", "OFF"
+    pkg.with_tests
+    pkg.define 'BUILD_TESTING', pkg.test_utility.enabled?
 
     corba = Autoproj.config.get('rtt_corba_implementation')
     if corba == 'none'
