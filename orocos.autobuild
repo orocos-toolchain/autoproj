@@ -26,13 +26,9 @@ cmake_package 'rtt' do |pkg|
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
     Autoproj.config.get('rtt_corba_implementation')
 
-
     # Disable building the test suite because it needs a lot of time and memory
-    #
-    # To reenable for your installation, add
-    #   Autobuild::Package['rtt'].define "BUILD_TESTING", "ON"
-    # to autoproj/overrides.rb
-    pkg.define "BUILD_TESTING", "OFF"
+    pkg.with_tests
+    pkg.define 'BUILD_TESTING', pkg.test_utility.enabled?
 
     corba = Autoproj.config.get('rtt_corba_implementation')
     if corba == 'none'
@@ -74,16 +70,12 @@ cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
     pkg.env_set 'TYPELIB_PLUGIN_PATH', File.join(pkg.prefix, 'lib', 'typelib')
 
-    cxx_loader =
-        if Autoproj.respond_to?(:workspace)
-	    Autoproj.workspace.env['TYPELIB_CXX_LOADER']
-        else ENV['TYPELIB_CXX_LOADER']
-        end
-
-    # Enable the clang importer by adding the following in autoproj/init.rb
+    # Enable the castxml importer by adding the following in autoproj/init.rb
     #
-    #   Autoproj.env_set 'TYPELIB_CXX_LOADER', 'clang'
+    #   Autoproj.config.set 'typelib_cxx_loader', 'castxml'
+    cxx_loader = Autoproj.config.get 'typelib_cxx_loader', 'gccxml'
     pkg.define 'BUILD_CLANG_TLB_IMPORTER', (cxx_loader == 'clang')
+    pkg.env_set 'TYPELIB_CXX_LOADER', cxx_loader
     pkg.post_import do
         # remove_dependency is post-1.9.0
         m = if pkg.respond_to?(:remove_dependency)
