@@ -99,7 +99,10 @@ graphviz:
     macos-port: graphviz-devel
 
 gccxml:
-    debian,ubuntu: gccxml
+    debian: gccxml
+    ubuntu: 
+      default: gccxml
+      "16.10": ignore
     gentoo: dev-cpp/gccxml-0.9.0_pre20131217
     fedora: gccxml
     arch,manjarolinux: ignore
