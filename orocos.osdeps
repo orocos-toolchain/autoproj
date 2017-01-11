@@ -179,6 +179,7 @@ libclang-castxml:
         '15.04': [libclang-3.6-dev, llvm-3.6-dev]
         '15.10': [libclang-3.7-dev, llvm-3.7-dev]
         default: [libclang-3.7-dev, llvm-3.7-dev]
+    debian: nonexistent
 
 zlib:
     ubuntu,debian: zlib1g-dev
