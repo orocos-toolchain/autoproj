@@ -172,6 +172,8 @@ castxml:
     ubuntu:
         '14.04,14.10,15.04,15.10': nonexistent
         default: castxml
+    debian:
+        default: castxml
 
 libclang-castxml:
     ubuntu:
