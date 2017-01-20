@@ -8,3 +8,6 @@ version_control:
         github: rock-core/tools-metaruby
         branch: master
 
+    - castxml:
+        github: CastXML/CastXML
+        branch: master

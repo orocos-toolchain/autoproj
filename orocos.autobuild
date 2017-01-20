@@ -1,16 +1,7 @@
 configuration_option 'rtt_target', 'string',
     :default => 'gnulinux',
-    :possible_values => %w{gnulinux xenomai},
-    :doc => "the target operating system for Orocos/RTT (gnulinux or xenomai)"
-
-# Upgrade configuration: the old rtt_corba option has to be translated to 'none'
-# for the CORBA implementation if it is false. Do not use Autoproj.user_config
-# here as there might be some cases where autoproj will want to ask the option
-# to the user (e.g. if --reconfigure is called)
-if Autoproj.has_config_key?('rtt_corba') && !Autoproj.option_set['rtt_corba']
-    Autoproj.change_option 'rtt_corba_implementation', 'none'
-end
-Autoproj.reset_option 'rtt_corba'
+    :possible_values => %w{gnulinux xenomai macosx},
+    :doc => "the target operating system for Orocos/RTT (gnulinux, xenomai, or macosx)"
 
 configuration_option 'rtt_corba_implementation', 'string',
     :default => "omniorb",
@@ -24,26 +15,22 @@ cmake_package 'rtt' do |pkg|
     pkg.doc_dir = File.join('doc', 'api', 'html')
     pkg.with_doc('docapi')
 
-    env_set 'OROCOS_TARGET', user_config('rtt_target')
-    env_add 'CMAKE_PREFIX_PATH', pkg.prefix
-
-    target = user_config('rtt_target')
+    
+    target = Autoproj.config.get('rtt_target')
+    env_set 'OROCOS_TARGET', target
     pkg.define "OROCOS_TARGET", target
+
+    env_add 'CMAKE_PREFIX_PATH', pkg.prefix
 
     # Used by the oroGen handler
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
-
-    Autoproj.user_config('rtt_corba_implementation')
-
+    Autoproj.config.get('rtt_corba_implementation')
 
     # Disable building the test suite because it needs a lot of time and memory
-    #
-    # To reenable for your installation, add
-    #   Autobuild::Package['rtt'].define "BUILD_TESTING", "ON"
-    # to autoproj/overrides.rb
-    pkg.define "BUILD_TESTING", "OFF"
+    pkg.with_tests
+    pkg.define 'BUILD_TESTING', pkg.test_utility.enabled?
 
-    corba = user_config('rtt_corba_implementation')
+    corba = Autoproj.config.get('rtt_corba_implementation')
     if corba == 'none'
         Autobuild::Orogen.corba = false
         pkg.define "ENABLE_CORBA", "OFF"
@@ -61,7 +48,7 @@ cmake_package 'ocl' do |pkg|
     pkg.doc_dir = File.join('doc', 'api', 'html')
     pkg.with_doc('docapi')
 
-    target = user_config('rtt_target')
+    target = Autoproj.config.get('rtt_target')
     pkg.define "OROCOS_TARGET", target
 end
 
@@ -80,8 +67,39 @@ cmake_package 'utilmm' do |pkg|
 end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
-    pkg.define "RUBY_EXECUTABLE", Autoproj.find_in_path(RbConfig::CONFIG['RUBY_INSTALL_NAME'])
+    pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
+    pkg.env_set 'TYPELIB_PLUGIN_PATH', File.join(pkg.prefix, 'lib', 'typelib')
+
+    # Enable the castxml importer by adding the following in autoproj/init.rb
+    #
+    #   Autoproj.config.set 'typelib_cxx_loader', 'castxml'
+    cxx_loader = Autoproj.config.get 'typelib_cxx_loader', 'gccxml'
+    pkg.define 'BUILD_CLANG_TLB_IMPORTER', (cxx_loader == 'clang')
+    pkg.env_set 'TYPELIB_CXX_LOADER', cxx_loader
+    pkg.post_import do
+        # remove_dependency is post-1.9.0
+        m = if pkg.respond_to?(:remove_dependency)
+                pkg.method(:remove_dependency)
+            else pkg.os_packages.method(:delete)
+            end
+        
+        if cxx_loader == 'clang'
+	    pkg.message "%s: using the clang importer"
+            m.call 'gccxml'
+            m.call 'castxml'
+        elsif cxx_loader == 'castxml'
+	    pkg.message "%s: using the castxml importer"
+            m.call 'gccxml'
+            m.call 'clang-3.4'
+        else
+	    pkg.message "%s: using the gccxml importer"
+            m.call 'castxml'
+            m.call 'clang-3.4'
+        end
+    end
 end
+cmake_package 'castxml'
+remove_from_default 'castxml'
 cmake_package 'rtt_typelib'
 ruby_package 'orogen'
 cmake_package 'stdint_typekit'

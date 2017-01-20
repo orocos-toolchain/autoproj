@@ -1,3 +1,6 @@
+pkg-config:
+    default: pkg-config
+
 boost:
     debian,ubuntu:
         - libboost-dev
@@ -9,7 +12,7 @@ boost:
         - libboost-iostreams-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
-    macos-brew: boost
+    darwin: boost
     arch,manjarolinux:
         - boost
         - boost-libs
@@ -18,7 +21,7 @@ boost:
 antlr:
     debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
-    macos-brew: antlr
+    darwin: antlr
 
 omniorb:
     debian,ubuntu:
@@ -35,10 +38,11 @@ omniorb:
     arch,manjarolinux: ignore
     opensuse: omniORB-devel
     macos-brew: omniorb
+    macos-port: omniORB
 
 tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
-    macos-brew: tao
+    darwin: tao
 
 # Alias for ROS compatibility
 readline:
@@ -52,6 +56,7 @@ libreadline:
     fedora: readline-devel
     opensuse: readline-devel
     macos-brew: readline
+    arch: readline
 
 lua-dev:
     debian,ubuntu: liblua5.1-0-dev
@@ -91,6 +96,7 @@ graphviz:
     arch,manjarolinux: graphviz
     opensuse: graphviz
     macos-brew: graphviz
+    macos-port: graphviz-devel
 
 gccxml:
     debian: gccxml
@@ -101,7 +107,7 @@ gccxml:
     fedora: gccxml
     arch,manjarolinux: ignore
     opensuse: gccxml
-    macos-brew: ignore
+    darwin: ignore
 
 rdoc:
     debian,ubuntu:
@@ -122,7 +128,7 @@ libxml2:
     fedora: libxml2-devel
     arch,manjarolinux: libxml2
     opensuse: libxml2-devel
-    macos-brew: libxml2
+    darwin: libxml2
 
 libxslt:
     debian,ubuntu: libxslt1-dev
@@ -130,7 +136,7 @@ libxslt:
     fedora: libxslt-devel
     arch,manjarolinux: libxslt
     opensuse: libxslt-devel
-    macos-brew: libxslt
+    darwin: libxslt
 
 ruby:
     debian,ubuntu,gentoo,fedora,arch,manjarolinux,opensuse,darwin: ignore
@@ -161,3 +167,31 @@ rake-compiler:
 
 hoe-yard: gem
 hoe: gem
+
+clang-3.4:
+    debian, ubuntu: [llvm-3.4, clang-3.4, libclang-3.4-dev]
+
+castxml:
+    ubuntu:
+        '14.04,14.10,15.04,15.10': nonexistent
+        default: castxml
+    debian:
+        default: castxml
+
+libclang-castxml:
+    ubuntu:
+        '14.04,14.10': nonexistent
+        '15.04': [libclang-3.6-dev, llvm-3.6-dev]
+        '15.10': [libclang-3.7-dev, llvm-3.7-dev]
+        default: [libclang-3.7-dev, llvm-3.7-dev]
+    debian: 
+        default: [libclang-3.8-dev, llvm-3.8-dev]
+
+zlib:
+    ubuntu,debian: zlib1g-dev
+
+libedit:
+    ubuntu,debian: libedit-dev
+    
+
+bundler: gem
