@@ -77,27 +77,15 @@ cmake_package 'typelib' do |pkg|
     pkg.define 'BUILD_CLANG_TLB_IMPORTER', (cxx_loader == 'clang')
     pkg.env_set 'TYPELIB_CXX_LOADER', cxx_loader
     pkg.post_import do
-        # remove_dependency is post-1.9.0
-        m = if pkg.respond_to?(:remove_dependency)
-                pkg.method(:remove_dependency)
-            else pkg.os_packages.method(:delete)
-            end
-        
         if cxx_loader == 'clang'
             pkg.message "%s: using the clang importer"
             pkg.depends_on 'clang-3.4'
-            m.call 'gccxml'
-            m.call 'castxml'
         elsif cxx_loader == 'castxml'
             pkg.message "%s: using the castxml importer"
             pkg.depends_on 'castxml'
-            m.call 'gccxml'
-            m.call 'clang-3.4'
         else
             pkg.message "%s: using the gccxml importer"
             pkg.depends_on 'gccxml'
-            m.call 'castxml'
-            m.call 'clang-3.4'
         end
     end
 end
