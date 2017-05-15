@@ -1,0 +1,11 @@
+# Check whether the default C++ loader should be castxml (ignore) or gccxml
+# (nonexistent)
+default_castxml:
+    ubuntu:
+        '12.04,12.10,13.04,13.10,14.04,14.10,15.04': nonexistent
+        default: ignore
+    debian:
+        squeeze,wheezy,jessie: nonexistent
+        default: ignore
+    default: nonexistent
+
