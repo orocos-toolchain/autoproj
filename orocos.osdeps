@@ -90,14 +90,6 @@ doxygen:
     arch,manjarolinux: doxygen
     opensuse: doxygen
     macos-brew: doxygen
-graphviz:
-    debian,ubuntu: graphviz
-    gentoo: graphviz
-    fedora: graphviz
-    arch,manjarolinux: graphviz
-    opensuse: graphviz
-    macos-brew: graphviz
-    macos-port: graphviz-devel
 
 gccxml:
     debian: gccxml
