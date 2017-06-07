@@ -195,3 +195,5 @@ libedit:
     
 
 bundler: gem
+flexmock: gem
+minitest: gem
