@@ -10,6 +10,7 @@ boost:
         - libboost-thread-dev
         - libboost-filesystem-dev
         - libboost-iostreams-dev
+        - libboost-system-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
     darwin: boost
@@ -90,7 +91,9 @@ doxygen:
     opensuse: doxygen
     macos-brew: doxygen
 graphviz:
-    debian,ubuntu: graphviz
+    debian,ubuntu:
+    - graphviz
+    - graphviz-dev
     gentoo: graphviz
     fedora: graphviz
     arch,manjarolinux: graphviz
