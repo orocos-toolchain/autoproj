@@ -1,24 +1,25 @@
 configuration_option 'rtt_target', 'string',
-    :default => 'gnulinux',
-    :possible_values => %w{gnulinux xenomai macosx},
-    :doc => "the target operating system for Orocos/RTT (gnulinux, xenomai, or macosx)"
+                     default: 'gnulinux',
+                     possible_values: %w[gnulinux xenomai macosx],
+                     doc: 'the target operating system for Orocos/RTT '\
+                          '(gnulinux, xenomai, or macosx)'
 
 configuration_option 'rtt_corba_implementation', 'string',
-    :default => "omniorb",
-    :lowercase => true,
-    :possible_values => %w{none tao omniorb},
-    :doc => ["which CORBA implementation should the RTT use ?",
-             "Answer 'none' to disable CORBA, otherwise pick either tao or omniorb"]
+                     default: 'omniorb',
+                     lowercase: true,
+                     possible_values: %w[none tao omniorb],
+                     doc: ['which CORBA implementation should the RTT use ?',
+                           'Answer "none" to disable CORBA, otherwise pick '\
+                           'either tao or omniorb']
 
 cmake_package 'rtt' do |pkg|
     pkg.always_reconfigure = true
     pkg.doc_dir = File.join('doc', 'api', 'html')
     pkg.with_doc('docapi')
 
-    
     target = Autoproj.config.get('rtt_target')
     env_set 'OROCOS_TARGET', target
-    pkg.define "OROCOS_TARGET", target
+    pkg.define 'OROCOS_TARGET', target
 
     env_add 'CMAKE_PREFIX_PATH', pkg.prefix
 
@@ -33,11 +34,11 @@ cmake_package 'rtt' do |pkg|
     corba = Autoproj.config.get('rtt_corba_implementation')
     if corba == 'none'
         Autobuild::Orogen.corba = false
-        pkg.define "ENABLE_CORBA", "OFF"
+        pkg.define 'ENABLE_CORBA', 'OFF'
     else
         Autobuild::Orogen.corba = true
-        pkg.define "ENABLE_CORBA", "YES"
-        pkg.define "CORBA_IMPLEMENTATION", corba.upcase
+        pkg.define 'ENABLE_CORBA', 'YES'
+        pkg.define 'CORBA_IMPLEMENTATION', corba.upcase
         pkg.depends_on corba.downcase
     end
 end
@@ -49,10 +50,10 @@ cmake_package 'ocl' do |pkg|
     pkg.with_doc('docapi')
 
     target = Autoproj.config.get('rtt_target')
-    pkg.define "OROCOS_TARGET", target
+    pkg.define 'OROCOS_TARGET', target
 end
 
-cmake_package "log4cpp"
+cmake_package 'log4cpp'
 
 ruby_package 'tools/metaruby'
 # For ROS compatibility, ROS does not like paths in package names
@@ -63,11 +64,11 @@ Autoproj.manifest.moved_packages['tools/metaruby'] = 'metaruby'
 
 ruby_package 'utilrb'
 cmake_package 'utilmm' do |pkg|
-    pkg.doc_dir = File.join("doc", "html")
+    pkg.doc_dir = File.join('doc', 'html')
 end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
-    pkg.define "RUBY_EXECUTABLE", Autoproj::CmdLine.ruby_executable
+    pkg.define 'RUBY_EXECUTABLE', Autoproj::CmdLine.ruby_executable
     pkg.env_set 'TYPELIB_PLUGIN_PATH', File.join(pkg.prefix, 'lib', 'typelib')
 
     # Enable the castxml importer by adding the following in autoproj/init.rb
@@ -78,13 +79,13 @@ cmake_package 'typelib' do |pkg|
     pkg.env_set 'TYPELIB_CXX_LOADER', cxx_loader
     pkg.post_import do
         if cxx_loader == 'clang'
-            pkg.message "%s: using the clang importer"
+            pkg.message '%s: using the clang importer'
             pkg.depends_on 'clang-3.4'
         elsif cxx_loader == 'castxml'
-            pkg.message "%s: using the castxml importer"
+            pkg.message '%s: using the castxml importer'
             pkg.depends_on 'castxml'
         else
-            pkg.message "%s: using the gccxml importer"
+            pkg.message '%s: using the gccxml importer'
             pkg.depends_on 'gccxml'
         end
     end
