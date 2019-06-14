@@ -29,6 +29,7 @@ cmake_package 'rtt' do |pkg|
 
     # Disable building the test suite because it needs a lot of time and memory
     pkg.with_tests
+    pkg.test_utility.source_dir = File.join(pkg.srcdir, 'tests')
     pkg.define 'BUILD_TESTING', pkg.test_utility.enabled?
 
     corba = Autoproj.config.get('rtt_corba_implementation')
