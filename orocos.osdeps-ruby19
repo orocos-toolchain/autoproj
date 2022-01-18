@@ -6,6 +6,7 @@ nokogiri:
           - gem: nokogiri
           - osdep: libxml2
           - osdep: libxslt
+    gentoo: dev-ruby/nokogiri
     default:
         - gem: nokogiri
         - osdep: libxml2

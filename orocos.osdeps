@@ -1,5 +1,6 @@
 pkg-config:
     default: pkg-config
+    gentoo: dev-util/pkgconf
 
 boost:
     debian,ubuntu:
@@ -83,6 +84,7 @@ libncurses-dev:
     opensuse: ncurses-devel
 netcdf:
     debian,ubuntu: [libnetcdf-dev]
+    gentoo: sci-libs/netcdf
 doxygen:
     debian,ubuntu: doxygen
     gentoo: app-doc/doxygen
@@ -94,7 +96,7 @@ graphviz:
     debian,ubuntu:
     - graphviz
     - graphviz-dev
-    gentoo: graphviz
+    gentoo: media-gfx/graphviz
     fedora: graphviz
     arch,manjarolinux: graphviz
     opensuse: graphviz
@@ -106,7 +108,6 @@ gccxml:
     ubuntu: 
       '12.04,14.04,14.10,15.04,15.10': gccxml
       default: nonexistent
-    gentoo: dev-cpp/gccxml-0.9.0_pre20131217
     fedora: gccxml
     arch,manjarolinux: ignore
     opensuse: gccxml
@@ -116,12 +117,14 @@ rdoc:
     debian,ubuntu:
         ignore # it is installed by default these days
     fedora: ruby-rdoc
+    gentoo: dev-ruby/rdoc
     default:
         gem
 
 rake:
     debian,ubuntu: rake
     fedora: rubygem-rake
+    gentoo: dev-ruby/rake
     default:
         gem
 
@@ -173,6 +176,7 @@ hoe: gem
 
 clang-3.4:
     debian, ubuntu: [llvm-3.4, clang-3.4, libclang-3.4-dev]
+    gentoo: sys-devel/clang
 
 castxml:
     ubuntu:
@@ -180,6 +184,7 @@ castxml:
         default: castxml
     debian:
         default: castxml
+    gentoo: dev-cpp/castxml
 
 libclang-castxml:
     ubuntu:
@@ -189,12 +194,15 @@ libclang-castxml:
         default: [libclang-3.7-dev, llvm-3.7-dev]
     debian: 
         default: [libclang-3.8-dev, llvm-3.8-dev]
+    gentoo: sys-devel/clang
 
 zlib:
     ubuntu,debian: zlib1g-dev
+    gentoo: sys-libs/zlib
 
 libedit:
     ubuntu,debian: libedit-dev
+    gentoo: dev-libs/libedit
     
 
 bundler: gem
