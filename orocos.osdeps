@@ -151,7 +151,8 @@ facets:
     ubuntu: gem
     debian:
         squeeze: gem
-        default: ruby-facets
+        7,8,9,10: ruby-facets
+        default: gem
     fedora: rubygem-facets
     default:
         gem: facets
