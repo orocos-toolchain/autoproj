@@ -122,7 +122,11 @@ rdoc:
         gem
 
 rake:
-    debian,ubuntu: rake
+    debian: rake
+    ubuntu: 
+      '12.04,14.04,14.10,15.04,15.10': rake
+      '16.04': 
+        gem: rake<11.0
     fedora: rubygem-rake
     gentoo: dev-ruby/rake
     default:
