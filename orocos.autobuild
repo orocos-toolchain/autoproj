@@ -69,7 +69,6 @@ cmake_package 'utilmm' do |pkg|
 end
 remove_from_default 'utilmm'
 cmake_package 'typelib' do |pkg|
-    pkg.define 'RUBY_EXECUTABLE', Autoproj::CmdLine.ruby_executable
     pkg.env_set 'TYPELIB_PLUGIN_PATH', File.join(pkg.prefix, 'lib', 'typelib')
 
     # Enable the castxml importer by adding the following in autoproj/init.rb
